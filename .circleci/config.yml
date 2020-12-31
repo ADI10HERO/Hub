@@ -314,9 +314,10 @@ workflows:
     jobs:
       - test-linux:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
           matrix:
             parameters:
               image:
@@ -326,18 +327,20 @@ workflows:
                 - 3.6
       - test-win:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
           matrix:
             parameters:
               python-version: ["3.5", "3.6", "3.7", "3.8", "3.9"]
               architecture: ["", "x86"]
       - test-osx:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
           matrix:
             parameters:
               python-version: ["3.5", "3.6", "3.7", "3.8", "3.9"]
@@ -346,9 +349,10 @@ workflows:
     jobs:
       - test-full-linux:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
           matrix:
             parameters:
               image:
@@ -358,18 +362,20 @@ workflows:
                 - 3.6
       - test-full-win:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
           matrix:
             parameters:
               python-version: ["3.5", "3.6", "3.7", "3.8", "3.9"]
               architecture: ["", "x86"]
       - test-full-osx:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
           matrix:
             parameters:
               python-version: ["3.5", "3.6", "3.7", "3.8", "3.9"]
@@ -378,6 +384,7 @@ workflows:
     jobs:
       - deploy:
           filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
             branches:
-              only:
-                - cci-new 
+              ignore: /.*/
